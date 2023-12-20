@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+    <changeSet id="create-comments-changelog" author="admin">
+        <createTable tableName="comments">
+            <column name="id" type="int" autoIncrement="true"><constraints primaryKey="true"/> </column>
+            <column name="task_id" type="int"><constraints nullable="false" referencedTableName="tasks" referencedColumnNames="id" foreignKeyName="FK_TASK_COMMENTS_ID"/></column>
+            <column name="comment" type="varchar(225)"><constraints nullable="true"/></column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
